@@ -51,6 +51,20 @@ To display a variable, use the double curly braces syntax with the variable name
 {{ variable }}
 ```
 
+You can traverse objects and arrays too.
+
+```html
+{{ obj->prop1->prop2 }}
+
+{{ arr[0][5] }}
+```
+
+If the variable is an object, you can use dot notation to access it.
+
+```html
+{{ obj.prop1.prop2 }}
+```
+
 ### Control Statements
 
 The template engine supports the following control statements:
@@ -60,7 +74,7 @@ The template engine supports the following control statements:
 The `include` statement allows you to include other template files within a template:
 
 ```html
-{{@ include 'path/to/file.html' }}
+{{@include 'path/to/file.html'}}
 ```
 
 #### Extend
@@ -68,11 +82,11 @@ The `include` statement allows you to include other template files within a temp
 The `extend` statement allows you to extend a base template and define blocks:
 
 ```html
-{{@ extend 'path/to/base.html' }}
+{{@extend 'path/to/base.html'}}
 
-{{@ setblock 'content' }}
+{{@setblock 'content'}}
 <!-- Block content here -->
-{{@ endsetblock }}
+{{@endsetblock}}
 <!-- Additional content -->
 
 ```
@@ -82,18 +96,41 @@ The `extend` statement allows you to extend a base template and define blocks:
 The `block` statement is used in conjunction with the `extend` statement to define and override blocks:
 
 ```html
-{{@ block 'content' }}
+{{@block 'content'}}
 <!-- Block content here -->
-{{@ endblock }}
+{{@endblock}}
 ```
 
 Inside the block, you can use `@parent` to include the content of the parent block:
 
 ```html
-{{@ block 'content' }}
+{{@block 'content'}}
 @parent
 <!-- Additional content here -->
-{{@ endblock }}
+{{@endblock}}
+```
+
+#### Execute arbitrary PHP code
+Any PHP code can be executed in the template to support statements that are not provided by default.
+
+To do that just use an `@` symbol before the statement, inside the tag.
+
+Let's see some examples:
+
+```html
+<!-- IF statement -->
+{{@ if(1+1 == 2): }}
+    Show this line
+{{@ endif }}
+
+<!-- FOREACH statement -->
+{{@ foreach($foo as $val): }}
+    <p>The value is: {{val}}</p>
+{{@ endforeach }}
+
+<!-- Print a variable uppercased -->
+{{@echo strtoupper($foo)}}
+
 ```
 
 ## Credits
