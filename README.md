@@ -135,9 +135,9 @@ Let's see some examples:
 
 ## Credits
 
-This `Template` class is based on the Template class by David Adams. You can find the original implementation here.
+This `Template` class is based on the Template class by David Adams. You can find the original implementation [here](https://codeshack.io/lightweight-template-engine-php/).
 License
 
 ## License
 
-This `Template` class is licensed under the MIT License. Feel free to use and modify it according to your needs.
+This `Template` class is licensed under the [MIT License](https://mit-license.org/). Feel free to use and modify it according to your needs.
