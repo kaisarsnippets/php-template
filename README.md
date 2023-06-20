@@ -138,4 +138,6 @@ Let's see some examples:
 This `Template` class is based on the Template class by David Adams. You can find the original implementation here.
 License
 
+## License
+
 This `Template` class is licensed under the MIT License. Feel free to use and modify it according to your needs.
