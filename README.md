@@ -48,7 +48,7 @@ The template syntax uses double curly braces (`{{ ... }}`) for placeholders and 
 To display a variable, use the double curly braces syntax with the variable name:
 
 ```html
-{{ $variable }}
+{{ variable }}
 ```
 
 ### Control Statements
