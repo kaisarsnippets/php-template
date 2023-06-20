@@ -163,10 +163,11 @@ class Template {
             if (!array_key_exists($value[1], self::$blocks)) {
                 self::$blocks[$value[1]] = '';
             }
-            if (strpos($value[2], '@parent') === false) {
-                self::$blocks[$value[1]] = $value[2];
+            $blockContent = preg_replace('/{{@\s*parent\s*}}/', '{{@parent}}', $value[2]);
+            if (strpos($blockContent, '{{@parent}}') === false) {
+                self::$blocks[$value[1]] = $blockContent;
             } else {
-                self::$blocks[$value[1]] = str_replace('@parent', self::$blocks[$value[1]], $value[2]);
+                self::$blocks[$value[1]] = str_replace('{{@parent}}', self::$blocks[$value[1]], $blockContent);
             }
             $code = str_replace($value[0], '', $code);
         }

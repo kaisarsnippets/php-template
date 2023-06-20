@@ -97,7 +97,7 @@ The `block` statement is used in conjunction with the `extend` statement to defi
 
 ```html
 {{@block 'content'}}
-<!-- Block content here -->
+    <!-- Block content here -->
 {{@endblock}}
 ```
 
@@ -105,8 +105,8 @@ Inside the block, you can use `@parent` to include the content of the parent blo
 
 ```html
 {{@block 'content'}}
-@parent
-<!-- Additional content here -->
+    {{@parent}}
+    <!-- Additional content here -->
 {{@endblock}}
 ```
 
