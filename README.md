@@ -20,7 +20,7 @@ The `parse` method accepts the path to the template file as the first argument a
 
 The `Template` class compiles the templates to PHP code for better performance. The compiled templates are cached in a specified directory to avoid repeated compilation.
 
-You can set the cache directory by assigning a value to the `$cache_dir` property:
+It is required to set a cache directory by assigning a value to the `$cache_dir` property:
 
 ```php
 $template->cache_dir = 'path/to/cache/dir/';
