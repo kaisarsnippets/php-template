@@ -12,6 +12,11 @@ class Template {
     public $cache_dir = '';
 
     /**
+     * @var bool Enable cache
+     */
+    public $cache_enabled = true;
+
+    /**
      * @var array Stores the defined blocks.
      */
     private static $blocks = [];
@@ -56,7 +61,8 @@ class Template {
         $cfile = $cdir.$cfile;
 
         // Check if needs build
-        if (!file_exists($file) ||
+        $cenable = $this->cache_enabled;
+        if (!file_exists($file) || !$cenable ||
         @filemtime($cfile) < @filemtime($file)) {
 
             // Compile templates
