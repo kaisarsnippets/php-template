@@ -33,7 +33,7 @@ class Template {
     }
 
     /**
-     * Parses and outputs a template file.
+     * Parses and outputs the template content.
      *
      * @param string $file The path to the template file.
      * @param array $data An associative array of data variables to be used in the template.
@@ -41,7 +41,11 @@ class Template {
     public function parse($file, $data = []) {
         $data = (array) $data;
         extract($data, EXTR_SKIP);
+        ob_start();
         require $this->compile($file);
+        $output = ob_get_contents();
+        ob_end_clean();
+        return $output;
     }
 
     /**
