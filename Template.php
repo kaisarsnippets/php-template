@@ -30,6 +30,8 @@ class Template {
         $conf = (array) $conf;
         isset($conf['cache_dir']) &&
         $this->cache_dir = $conf['cache_dir'];
+        isset($conf['cache_enabled']) &&
+        $this->cache_enabled = $conf['cache_enabled'];
     }
 
     /**
